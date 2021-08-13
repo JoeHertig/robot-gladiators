@@ -2,40 +2,11 @@
 
 // function to generate a random numeric value
 var randomNumber = function (min, max) {
-  var value = Math.floor(Math.random() * (max - min + 1) + min);
-
-  return value;
-};
-
-// fight function (now with parameter for enemy's object holding name, health, and attack values)
-var fight = function (enemy) {
-  while (playerInfo.health > 0 && enemy.health > 0) {
-    // ask player if they'd like to fight or run
-    var promptFight = window.prompt(
-      'Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.'
-    );
-
-// function to generate a random numeric value
-var randomNumber = function (min, max) {
   var value = Math.floor(Math.random() * (max - min) + min);
 
   return value;
 };
 
-    // generate random damage value based on player's attack power
-    var damage = randomNumber(playerInfo.attack - 3, playerInfo.attack);
-
-    enemy.health = Math.max(0, enemy.health - damage);
-    console.log(
-      playerInfo.name +
-        " attacked " +
-        enemy.name +
-        ". " +
-        enemy.name +
-        " now has " +
-        enemy.health +
-        " health remaining."
-    );
 // function to check if player wants to fight or skip
 var fightOrSkip = function () {
   // ask player if they'd like to fight or run
@@ -73,16 +44,6 @@ var fightOrSkip = function () {
   return false;
 };
 
-    // remove players's health by subtracting the amount set in the enemy.attack variable
-    var damage = randomNumber(enemy.attack - 3, enemy.attack);
-
-    playerInfo.health = Math.max(0, playerInfo.health - damage);
-
-    console.log(
-      enemy.name +
-        " attacked " +
-        playerInfo.name +
-        ". " +
 // fight function (now with parameter for enemy's object holding name, health, and attack values)
 var fight = function (enemy) {
   // keep track of who goes first
@@ -170,7 +131,6 @@ var startGame = function () {
 
   // fight each enemy robot by looping over them and fighting them one at a time
   for (var i = 0; i < enemyInfo.length; i++) {
-    // if player is still alive, keep fight next enemy
     // check player stats
     console.log(playerInfo);
 
@@ -279,13 +239,6 @@ var shop = function () {
   }
 };
 
-/* END GAME FUNCTIONS */
-
-/* GAME INFORMATION / VARIABLES */
-
-// player information
-var playerInfo = {
-  name: window.prompt("What is your robot's name?"),
 // function to set name
 var getPlayerName = function () {
   var name = "";
@@ -331,7 +284,6 @@ var playerInfo = {
   },
 };
 
-// enemy information
 var enemyInfo = [
   {
     name: "Roborto",
@@ -346,11 +298,6 @@ var enemyInfo = [
     attack: randomNumber(10, 14),
   },
 ];
-
-console.log(enemyInfo);
-console.log(enemyInfo[0]);
-console.log(enemyInfo[0].name);
-console.log(enemyInfo[0]["attack"]);
 
 /* END GAME INFORMATION / VARIABLES */
 
